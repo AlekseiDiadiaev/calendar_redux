@@ -1,0 +1,79 @@
+@import '../../../styles/variables.scss';
+
+.cell-body{
+    height: 64px;
+    border-right: 1px solid $gray300; 
+    border-bottom: 1px solid $gray300; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px;
+    overflow: visible;
+    cursor: pointer;
+    position: relative;
+    &__event{
+        border-left: 4px solid #0EA5E9;
+        padding: 2px;
+        border-radius: 4px;
+        height: 200%;
+        overflow: hidden;
+        background: rgba(14, 165, 233, 0.1);
+        z-index: 1;
+    }
+
+    &__time{
+        display: flex;
+        justify-content: start;
+        align-items: center; 
+        gap: 1px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        /* lightBlue/700 */
+        color: #0369A1;
+    }
+
+    &__ico{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 12px;
+        height: 12px;
+        background: #0369A1;
+        border-radius: 100px;
+    }
+    &__descr{
+        overflow: hidden;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        /* or 133% */
+        display: flex;
+        align-items: center;
+        /* lightBlue/700 */
+        color: #0369A1;
+    }
+    &_now{
+        animation: cellNow 2s infinite ease-in-out !important;
+    }
+
+    &_past {
+        &:before{
+            content: '';
+            position: absolute;
+            width: 142px;
+            height: 64px;
+            background-color: #71717a28;
+        }
+    }
+
+    &_past > .event {
+        filter: grayscale(50%);
+    }
+    
+}
+
+@keyframes cellNow {
+    from {background-color: $gray100}
+    50% {background-color: #be123d2d}
+    to {background-color: $gray100}
+}

@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+.main-area {
+    background-color: #fff;
+    padding: 16px 0px 0px 16px;
+    overflow: hidden;  
+    @media (max-width: 550px){
+        width: 100vw;
+        padding: 0px;
+    } 
+}
+
+.nav-items {
+    width: auto;
+    height: 28px;
+    display: grid;
+    grid-template-columns: 125px auto 300px;
+    padding-right: 16px;
+    @media (max-width: 1140px){
+        grid-template-columns: 125px auto 140px;
+    } 
+    @media (max-width: 550px){
+        height: 56px;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
+    } 
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    @media (max-width: 550px){
+        margin-top: 2px;
+        padding-bottom: 10px;
+        order: 1;    
+        grid-column: 1 / 3;
+    } 
+}

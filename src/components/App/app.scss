@@ -1,0 +1,66 @@
+@import '../../styles/reset.scss';
+@import '../../styles/variables.scss';
+
+*{
+    font-family: 'Inter', sans-serif;  
+    font-style: normal;
+    font-weight: 400;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    position: relative;
+}
+
+.container {
+    /* padding-top: 20px; */
+    margin: 0 auto;
+    max-width: 1440px; 
+    @media (max-width: 1400px){
+        max-width: 1150px;
+    } 
+    @media (max-width: 1140px){
+        max-width: 860px;
+    } 
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px auto;    
+    // grid-template-rows: 300px 300px;
+    @media (max-width: 860px) {
+        grid-template-columns: auto; 
+    }
+}
+
+.btn {
+
+    padding: 4px;
+    height: 28px;
+    background: #0EA5E9;
+    border-radius: 8px;
+    font-family: 'Inter';
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: #FFFFFF;
+    @media (hover: hover) {
+        &:hover{
+            background: $lightBlue700; 
+        }
+    }
+}
+
+.overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0,0,0,.5);
+    pointer-events: painted;
+}

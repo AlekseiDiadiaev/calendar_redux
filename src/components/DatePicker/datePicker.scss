@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.side-panel {
+    color: $gray200;
+}
+
+.rdp {
+    margin: 20px 12px 0 12px !important;
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+    background-color: var(--rdp-background-color);
+    color: black;
+}
+
+.rdp-day_selected {
+    color: white;
+    opacity: 1;
+    background-color: #0EA5E9 !important; 
+}

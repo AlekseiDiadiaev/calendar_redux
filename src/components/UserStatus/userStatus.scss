@@ -1,0 +1,28 @@
+@import '../../styles/variables.scss';
+
+.user-status {
+    height: 40px;
+    display: grid;
+    grid-template-columns: minmax(40px, 100%) 70px 70px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    gap: 4px;
+    padding: 0 16px 0 16px;
+    position: relative;
+
+    &__ico {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: #e7f6fd;
+    }
+
+    &__name{
+        position: absolute;
+        top: 14px;
+        left: 57px;
+        width: 150px;
+        overflow: hidden;
+        font-weight: 500;
+    }
+}

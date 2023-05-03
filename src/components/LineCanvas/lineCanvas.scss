@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+
+
+#line-canvas {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    pointer-events: none;   
+}

@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+
+.side-panel {
+    background: #18181B;
+    padding: 16px 0px 16px 0px;
+    &__side-btn{
+        display: none;
+    }
+    @media (max-width: 860px) {
+        z-index: 10;
+        height: 100vh;
+        position: absolute;
+        left: -300px;
+        transition: 0.5s all;
+        &__side-btn {
+            padding-right: 7px;
+            font-size: 40px;
+            color: $gray100;
+            display: block;
+            position: absolute;
+            right: -33px;
+            top: 57px;
+            width: 33px;
+            height: 60px;
+            background: #18181B;
+            border-radius: 0 30px 30px 0
+        }
+
+    }
+    &_active{
+        left: 0px;
+    }
+}

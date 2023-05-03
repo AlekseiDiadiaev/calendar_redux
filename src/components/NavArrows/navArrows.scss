@@ -1,0 +1,52 @@
+@import '../../styles/variables.scss';
+
+.arrows-nav {
+    width: 125px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1px;
+    @media (max-width: 550px){
+        order: 2; 
+        margin-left: 35px;   
+    } 
+}
+
+.arrows-nav__btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    gap: 8px;
+    background: $gray200;
+
+    @media (hover: hover) {
+        &:hover{
+            background: $gray300; 
+        }
+    }
+    
+
+    &__prev {
+        border-radius: 6px 0px 0px 6px;
+        width: 28px;
+        height: 28px;
+    }
+
+    &__today {  
+        font-family: 'Inter', sans-serif;  
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;           
+        width: 67px;
+        height: 28px;
+    }
+
+    &__next {
+        border-radius: 0px 6px 6px 0px;
+        width: 28px;
+        height: 28px;
+    }
+
+}

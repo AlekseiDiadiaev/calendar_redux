@@ -1,0 +1,29 @@
+@import '../../../styles/variables.scss';
+
+.cell-header {
+    border-right: 1px solid $gray300;
+    border-bottom: 1px solid $gray300; 
+    padding: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    :first-child, :nth-child(2) {
+        width: 50px;
+        display: block;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 12px;       
+        color: $gray600 
+    }
+    :nth-child(2) {
+        text-align: right;
+        color: $gray400;
+        font-weight: 500;
+    }
+    :nth-child(3){
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 32px;
+        color: #000000;
+    }
+}
