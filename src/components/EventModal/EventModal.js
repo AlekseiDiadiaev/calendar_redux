@@ -10,7 +10,7 @@ import { db } from '../../firebase';
 import LineCanvas from '../LineCanvas/LineCanvas';
 import { format, formatDuration } from 'date-fns'
 
-const EventModal = ({fetchUserEvents}) => {
+const EventModal = ({fetchUserEvents, smallHeight}) => {
     
     const [windowSize, setWindowSize] = useState({
         width: window.innerWidth,
@@ -187,7 +187,7 @@ const EventModal = ({fetchUserEvents}) => {
                     <button className="btn event-modal__reset" onClick={handleDeleteEvent}>Delete</button>
                     
                 </div>
-                {coordinatesEventModal && <LineCanvas/>}
+                {coordinatesEventModal && !smallHeight && <LineCanvas/>}
             </div>         
          );
        }   
@@ -225,7 +225,7 @@ const EventModal = ({fetchUserEvents}) => {
 
     return (
         <div className="anim-modal">
-            {coordinatesEventModal.x ? <LineCanvas/> : null}
+            {coordinatesEventModal && !smallHeight && <LineCanvas/>}
             <div className="event-modal" ref={modalNode}> 
                 {loading ? <div className="event-modal__spinner" ><Spinner/></div> :
                 <>

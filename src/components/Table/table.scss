@@ -96,6 +96,7 @@
     }
 
     &__body {
+        min-height: calc(375px - 128px);
         overflow-y: auto;
         overflow-x: hidden;
         height: calc(100vh - 128px);
@@ -139,6 +140,7 @@
         }
         @media (max-width: 550px){
             width: 550px;
+            min-height: calc(375px - 142px);
             height: calc(100vh - 142px);
         } 
     }  

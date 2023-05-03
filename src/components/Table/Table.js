@@ -7,7 +7,7 @@ import EventModal from '../EventModal/EventModal';
 import TimeZoneStringGetter from '../../services/TimeZoneStringGetter';
 import hoursOfDays from '../../services/ArrayHoursOfDay';
 import getDaysToHeaderOfTable from '../../services/DaysToHeaderOfTable'
-import { activeCanvasTrigger, userEventFetched, setUserEvents, setNumberOfColumns } from '../../redux/actions'
+import { activeCanvasTrigger, toggleEventModal, setUserEvents, setNumberOfColumns } from '../../redux/actions'
 import { useEffect, useState, useRef } from 'react'; 
 import { useSelector, useDispatch  } from 'react-redux';
 import { db } from '../../firebase';
@@ -17,6 +17,7 @@ import { CSSTransition } from 'react-transition-group';
 
 const Table = () => {
     const [timezoneString, setTimezoneString] = useState();
+    const [smallHeight, setSmallHeight] = useState(false);
     const [resizeTrigger, setResizeTrigger] = useState(true)
     const [timeNow, setTimeNow] = useState(format(startOfHour(new Date()).getTime(), "yyyy-MM-dd-H"))
     const bodyRef = useRef();
@@ -56,6 +57,14 @@ const Table = () => {
         if(window.innerWidth <= 1140){
             dispatch(setNumberOfColumns(3))
         }
+        if(window.innerHeight <= 400){
+            setSmallHeight(true)
+            dispatch(toggleEventModal(false));
+        } 
+        if(window.innerHeight >= 400){
+            setSmallHeight(false)
+            dispatch(toggleEventModal(false));
+        } 
 
         const handleResize = () => {
             setResizeTrigger(resizeTrigger => !resizeTrigger)
@@ -165,22 +174,22 @@ const Table = () => {
 
             return res;
         })(numberOfColumns);
-
+        const eventModal = <CSSTransition
+                                in={eventModalShowed}
+                                timeout={300}
+                                classNames="anim-modal"
+                                unmountOnExit                             
+                            >
+                                <EventModal fetchUserEvents={fetchUserEvents} smallHeight={smallHeight}/>
+                            </CSSTransition>;  
     return (
         <div className="table">
-             
+              {smallHeight && eventModal}
             <div className="table__header">             
                 {headerCells}     
             </div>
             <div className="table__wrapper-body">
-                <CSSTransition
-                    in={eventModalShowed}
-                    timeout={300}
-                    classNames="anim-modal"
-                    unmountOnExit
-                >
-                    <EventModal fetchUserEvents={fetchUserEvents}/>
-                </CSSTransition>
+                {!smallHeight && eventModal}
                 <div ref={bodyRef} className="table__body" onScroll={handleCanvasTrigger}>
                     {bodyCells}
                             

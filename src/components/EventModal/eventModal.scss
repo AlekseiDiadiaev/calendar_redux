@@ -24,6 +24,13 @@
 
     @media (max-width: 550px){
         left: 50vw;
+    }
+
+    @media (max-height: 400px){
+        top: 40%;
+        max-height: 95vh;
+        overflow-y: auto;
+        overflow-x: hidden;
     } 
 
     &__spinner{

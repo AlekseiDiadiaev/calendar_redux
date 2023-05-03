@@ -27,6 +27,7 @@ body {
 .wrapper {
     position: relative;
     width: 100%;
+    min-height: 375px;
     height: 100vh;
     display: grid;
     grid-template-columns: 300px auto;    
@@ -57,7 +58,8 @@ body {
 }
 
 .overlay {
-    height: 100vh;
+    min-height: 375px;
+    height: 100vh; 
     width: 100vw;
     position: absolute;
     z-index: 2;
