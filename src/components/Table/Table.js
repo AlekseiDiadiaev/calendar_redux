@@ -58,12 +58,12 @@ const Table = () => {
             dispatch(setNumberOfColumns(3))
         }
         if(window.innerHeight <= 400){
-            setSmallHeight(true)
-            dispatch(toggleEventModal(false));
+            if (!smallHeight) dispatch(toggleEventModal(false));
+            setSmallHeight(true)   
         } 
         if(window.innerHeight >= 400){
+            if (smallHeight) dispatch(toggleEventModal(false));
             setSmallHeight(false)
-            dispatch(toggleEventModal(false));
         } 
 
         const handleResize = () => {
